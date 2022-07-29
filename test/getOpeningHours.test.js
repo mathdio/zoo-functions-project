@@ -38,9 +38,10 @@ describe('Testes da função getOpeningHours', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('retorna mensagem que diz que está aberto caso os parâmetros batam o horário', () => {
+  it('retorna mensagem que diz que está fechado caso os parâmetros não batam o horário', () => {
     const actual = getOpeningHours('Tuesday', '07:00-AM');
     const expected = 'The zoo is closed';
     expect(actual).toEqual(expected);
+    expect(getOpeningHours('Monday', '09:00-AM')).toEqual(expected);
   });
 });
